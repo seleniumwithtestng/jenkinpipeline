@@ -11,10 +11,8 @@ pipeline {
                 sh 'mvn clean verify'
             }
         }
-    }
-    
-    
-    stage ('SonarQube Analysis'){
+        
+        stage ('SonarQube Analysis'){
 steps{
 dir("project_templates/java_project_template"){
 withSonarQubeEnv('SonarQube5.3') {
@@ -23,6 +21,10 @@ sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
 }
 }
 }
+    }
+    
+    
+    
    
 
     stages {
